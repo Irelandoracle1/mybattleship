@@ -15,6 +15,8 @@ class Mybattleship_Game:
             self.player.append(["~"]*5)
         for c in range(5):
             self.computer.append(["-"]*5)
+        print("My Game Board")
+        self.player_board()
     
     def player_board(self):
         """
@@ -22,9 +24,11 @@ class Mybattleship_Game:
         from the player list already populated in 
         init method
         """ 
+        for play in self.player:
+            print(" ".join(play))
 
 
-
+my_game=Mybattleship_Game()
 
 
 
