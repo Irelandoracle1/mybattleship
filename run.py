@@ -17,6 +17,11 @@ class Mybattleship_Game:
             self.computer.append(["-"]*5)
         print("My Game Board")
         self.player_board()
+        print("\n")
+        print("Computer Game Board")
+        self.computer_board()
+
+    
     
     def player_board(self):
         """
@@ -26,6 +31,14 @@ class Mybattleship_Game:
         """ 
         for play in self.player:
             print(" ".join(play))
+    def computer_board(self):
+        """
+        This method creates the computer board
+        from the computer list already populated in 
+        init method
+        """ 
+        for comp in self.computer:
+            print(" ".join(comp))
 
 
 my_game=Mybattleship_Game()
