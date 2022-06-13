@@ -1,3 +1,4 @@
+import random
 class Mybattleship_Game:
     """
     This is the battleship game class
@@ -39,6 +40,18 @@ class Mybattleship_Game:
         """ 
         for comp in self.computer:
             print(" ".join(comp))
+    def random_row(self):
+        """
+        this returns random values between 0 and 4
+        for the row
+        """
+        return random.randint(0, 5-1)
+    def random_column(self):
+        """
+        this returns random values between 0 and 4
+        for the column
+        """
+        return random.randint(0, 5-1)
 
 
 my_game=Mybattleship_Game()
