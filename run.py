@@ -70,6 +70,15 @@ class Mybattleship_Game:
                 if (guess_row<0 or guess_row>4) or (guess_column<0 or guess_column>4):
                     print("Sorry! guessed out of range. choose values from 0 to 4")
                     break
+                else:
+                    self.computer[guess_row][guess_column]="X"
+                    print(" Sorry! you missed the hit")
+            print("My Game Board")
+            self.player_board()
+            print("\n")
+            print("Computer Game Board")
+            self.computer_board()
+
 
 
 
