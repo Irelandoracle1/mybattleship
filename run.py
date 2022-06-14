@@ -82,6 +82,7 @@ class Mybattleship_Game:
                     self.computer[guess_row][guess_column]="X"
                     print(" Sorry! you missed the hit")
             self.computer_turn()
+            print(f'SCORES For this Round: You:{self.player_score()} | Computer: {self.computer_score()}')
             print("My Game Board")
             self.player_board()
             print("\n")
@@ -105,6 +106,26 @@ class Mybattleship_Game:
                 self.player[guess_row][guess_column]="X"
                 print(" the computer missed the hit")
             game_alive=False
+    
+    def player_score(self):
+        """
+        this method helps count and sum up
+        the player scores from the computers board
+        """
+        scores=0
+        for score in self.computer:
+            scores +=score.count("$")
+            return scores
+
+    def computer_score(self):
+        """
+        this method helps count and sum up
+        the computer scores from the players board
+        """
+        scores=0
+        for score in self.player:
+            scores +=score.count("$")
+            return scores
                 
             
         
