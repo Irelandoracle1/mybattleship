@@ -1,4 +1,5 @@
 import random
+import sys
 class Mybattleship_Game:
     """
     This is the battleship game class
@@ -60,6 +61,7 @@ class Mybattleship_Game:
         This method defines the logic for the users
         turn of play
         """
+        v=1
         while True:
             try:
               guess_row=int(input("Guess a Row:"))
@@ -88,7 +90,13 @@ class Mybattleship_Game:
             print("\n")
             print("Computer Game Board")
             self.computer_board()
-            
+            quit_game=input("Click enter to continue or click X and enter to exit the game")
+            if quit_game=="x":
+                sys.exit()
+            if v>10:
+                print("GAME OVER!!!")
+                
+            v+=1
 
     def computer_turn(self):
         """
