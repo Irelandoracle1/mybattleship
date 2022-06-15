@@ -66,24 +66,24 @@ class Mybattleship_Game:
               guess_row=int(input("Guess a Row:"))
             except ValueError:
                   print("You entered an invalid row value. You should choose integer values only")
-                  break
+                  continue
             try:
               guess_column=int(input("Guess a Column:"))
             except ValueError:
                   print("You entered an invalid row value. You should choose integer values only")
-                  break
+                  continue
             if guess_row==self.random_row() and guess_column==self.random_column():
                 self.computer[guess_row][guess_column]="$"
                 print("Yeh! you made hit")
             else:
                 if (guess_row<0 or guess_row>4) or (guess_column<0 or guess_column>4):
                     print("Sorry! guessed out of range. choose values from 0 to 4")
-                    break
+                    continue
                 else:
                     self.computer[guess_row][guess_column]="X"
                     print(" Sorry! you missed the hit")
             self.computer_turn()
-            print(f'SCORES For this Round: You:{self.player_score()} | Computer: {self.computer_score()}')
+            print(f'SCORES For this Round: You:{self.game_score(self.computer)} | Computer: {self.game_score(self.player)}')
             print("My Game Board")
             self.player_board()
             print("\n")
@@ -94,7 +94,7 @@ class Mybattleship_Game:
                 sys.exit()
             if v>10:
                 print("GAME OVER!!!")
-                self.game_winner()
+                print(self.game_winner())
                 sys.exit()
 
             v+=1
@@ -116,35 +116,25 @@ class Mybattleship_Game:
                 print(" the computer missed the hit")
             game_alive=False
     
-    def player_score(self):
+    def game_score(self, game_board):
         """
-        this method helps count and sum up
-        the player scores from the computers board
+        This method is for summing up the player 
+        and computer scores from their boards
         """
-        scores=0
-        for score in self.computer:
-            scores +=score.count("$")
-            return scores
+        scores = sum(s.count("$") for s in game_board)
+        return scores
 
-    def computer_score(self):
-        """
-        this method helps count and sum up
-        the computer scores from the players board
-        """
-        scores=0
-        for score in self.player:
-            scores +=score.count("$")
-            return scores
     def game_winner(self):
         """
         This method is used for determining the game winner
         """
-        if self.player_score()>self.computer_score():
-            print("Hurray! You are the winner of the game")
-        elif self.computer_score()>self.player_score():
-            print("Sorry! the computer won")
+        if self.game_score(self.computer)>self.game_score(self.player):
+            message = "Hurray! You are the winner of the game"
+        elif self.game_score(self.player)>self.game_score(self.computer):
+            message = "Sorry! the computer won"
         else:
-            print("There is no winner. It is a draw")
+            message = "There is no winner. It is a draw"
+        return message
             
         
 
