@@ -1,17 +1,18 @@
 import random
 import sys
+
+
 class Mybattleship_Game:
     """
     This is the battleship game class
     it holds all the logic for the battleship game
     """
-    player=[]
-    computer=[]
+    player = []
+    computer = []
 
     def __init__(self):
         """
-        This concstructor method 
-        is used for adding values to boards
+        This concstructor method is used for adding values to boards
         """
         for p in range(5):
             self.player.append(["~"]*5)
@@ -24,10 +25,8 @@ class Mybattleship_Game:
         self.computer_board()
         for m in range(10):
             self.player_turn()
-            m+=1
+            m += 1
 
-    
-    
     def player_board(self):
         """
         This method creates the player board
@@ -75,7 +74,7 @@ class Mybattleship_Game:
                   break
             if guess_row==self.random_row() and guess_column==self.random_column():
                 self.computer[guess_row][guess_column]="$"
-                print("Yo! you made hit")
+                print("Yeh! you made hit")
             else:
                 if (guess_row<0 or guess_row>4) or (guess_column<0 or guess_column>4):
                     print("Sorry! guessed out of range. choose values from 0 to 4")
@@ -96,6 +95,7 @@ class Mybattleship_Game:
             if v>10:
                 print("GAME OVER!!!")
                 self.game_winner()
+                sys.exit()
 
             v+=1
 
