@@ -18,7 +18,8 @@ class Mybattleship_Game:
             self.player.append(["~"]*5)
         for c in range(5):
             self.computer.append(["-"]*5)
-        print("My Game Board")
+        player_name=input("Enter Your Name and Click Enter to Start Playing!\n")
+        print(f"{player_name} Game Board")
         self.player_board()
         print("\n")
         print("Computer Game Board")
@@ -61,7 +62,7 @@ class Mybattleship_Game:
         turn of play
         """
         v=1
-        while True:
+        while v<11:
             try:
               guess_row=int(input("Guess a Row:"))
             except ValueError:
@@ -72,17 +73,23 @@ class Mybattleship_Game:
             except ValueError:
                   print("You entered an invalid row value. You should choose integer values only")
                   continue
-            if guess_row==self.random_row() and guess_column==self.random_column():
+
+            if(guess_row<0 or guess_row>4) or (guess_column<0 or guess_column>4):
+                    print("Sorry! guessed out of range. choose values from 0 to 4")
+                    continue
+
+            elif (self.computer[guess_row][guess_column]=="X") or (self.computer[guess_row][guess_column]=="$"):
+                print("You have guessed that already")
+
+            elif guess_row==self.random_row() and guess_column==self.random_column():
                 self.computer[guess_row][guess_column]="$"
                 print("Yeh! you made hit")
             else:
-                if (guess_row<0 or guess_row>4) or (guess_column<0 or guess_column>4):
-                    print("Sorry! guessed out of range. choose values from 0 to 4")
-                    continue
-                else:
-                    self.computer[guess_row][guess_column]="X"
-                    print(" Sorry! you missed the hit")
+                self.computer[guess_row][guess_column]="X"
+                print(" Sorry! you missed the hit")
+                    
             self.computer_turn()
+            print(f'You have played {v} rounds out 10 rounds')
             print(f'SCORES For this Round: You:{self.game_score(self.computer)} | Computer: {self.game_score(self.player)}')
             print("My Game Board")
             self.player_board()
@@ -92,9 +99,10 @@ class Mybattleship_Game:
             quit_game=input("Click any button and enter to continue or click X and enter to exit the game")
             if quit_game=="x":
                 sys.exit()
-            if v>10:
-                print("GAME OVER!!!")
+            if v>9:
                 print(self.game_winner())
+                print(f'FINAL SCORE: You:{self.game_score(self.computer)} | Computer: {self.game_score(self.player)}')
+                print("GAME OVER!!!")
                 sys.exit()
 
             v+=1
@@ -108,12 +116,17 @@ class Mybattleship_Game:
         guess_column=self.random_column()
         game_alive=True
         while game_alive:
-            if guess_row==self.random_row() and guess_column==self.random_column():
+            if (self.player[guess_row][guess_column]=="X") or (self.player[guess_row][guess_column]=="$"):
+                print("computer had guessed that before")
+
+            elif guess_row==self.random_row() and guess_column==self.random_column():
                 self.player[guess_row][guess_column]="$"
                 print("Hey! you were hit by the computer")
+
             else:
                 self.player[guess_row][guess_column]="X"
                 print(" the computer missed the hit")
+
             game_alive=False
     
     def game_score(self, game_board):
@@ -141,7 +154,6 @@ class Mybattleship_Game:
 
 
 print("Welcome to The Battleship Game")
-input("click enter to start playing!")
 my_game=Mybattleship_Game()
 
 
