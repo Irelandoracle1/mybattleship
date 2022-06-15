@@ -90,12 +90,13 @@ class Mybattleship_Game:
             print("\n")
             print("Computer Game Board")
             self.computer_board()
-            quit_game=input("Click enter to continue or click X and enter to exit the game")
+            quit_game=input("Click any button and enter to continue or click X and enter to exit the game")
             if quit_game=="x":
                 sys.exit()
             if v>10:
                 print("GAME OVER!!!")
-                
+                self.game_winner()
+
             v+=1
 
     def computer_turn(self):
@@ -134,7 +135,16 @@ class Mybattleship_Game:
         for score in self.player:
             scores +=score.count("$")
             return scores
-                
+    def game_winner(self):
+        """
+        This method is used for determining the game winner
+        """
+        if self.player_score()>self.computer_score():
+            print("Hurray! You are the winner of the game")
+        elif self.computer_score()>self.player_score():
+            print("Sorry! the computer won")
+        else:
+            print("There is no winner. It is a draw")
             
         
 
