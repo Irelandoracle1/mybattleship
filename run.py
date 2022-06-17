@@ -20,7 +20,7 @@ class Mybattleship_Game:
             self.computer.append(["-"]*5)
         print("\n")
         player_name = input("Enter Your Name and Click Enter to  " +
-                            "Start Playing!\n")
+                            "Start Playing!:\n")
         print(f"{player_name} Game Board")
         self.player_board()
         print("\n")
@@ -108,7 +108,7 @@ class Mybattleship_Game:
             print("Computer Game Board")
             self.computer_board()
             quit_game = input("Click any button and enter to continue " +
-                              "or click X and enter to exit the game")
+                              "or click X and enter to exit the game:")
             if quit_game == "x":
                 sys.exit()
             if v > 9:
