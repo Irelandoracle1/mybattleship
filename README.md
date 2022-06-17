@@ -8,7 +8,7 @@ guess system.Any game lover will definitely find Sumo Battleship interesting and
 version or not
 
 ### Here Is The Live Version
-![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+![Responsive Mockup](https://raw.githubusercontent.com/Irelandoracle1/mybattleship/main/images/sumo1.jpg)
 
 ## How To Play Sumo Battleship Game
 
@@ -31,19 +31,19 @@ the game application again.
 
   - Two game boards are automatically generated. One for the player and one for the computer
   - The ship positions are hidden in both the player and computer's game boards
-  ![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+  ![Game Boards](https://raw.githubusercontent.com/Irelandoracle1/mybattleship/main/images/sumo4.png)
   - Player and computer play turn are executed simultaneously
   - The Game Prompts And Recieves User's Input
   - Manages Scores For Every Game Round
 
-   ![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+   ![Game Play](https://github.com/Irelandoracle1/mybattleship/blob/main/images/sumo5.png)
 
 - __Error Handling And Input Validation__
 
   - The player or computer are not allowed to guess a grid (row and column) 
   - The player cannot enter any other value apart from numbers within the specified range
   - The player is not allowed to guess numbers out of the specified range
-  ![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Error Handling](https://github.com/Irelandoracle1/mybattleship/blob/main/images/sumo6.png)
   - The Game Data is managed in a single class instance or object
 
 ### Future Features
@@ -87,7 +87,7 @@ This are the steps I followed in deploying the application to Heroku are as foll
   - Link the Heroku App to the repository 
   - Click on 'Deploy'
 
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
+The live link can be found here - https://sumo-battleship.herokuapp.com/ 
 
 
 ## Credits 
