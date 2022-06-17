@@ -1,5 +1,5 @@
 import random
-import sys
+
 
 
 class Mybattleship_Game:
