@@ -110,13 +110,13 @@ class Mybattleship_Game:
             quit_game = input("Click any button and enter to continue " +
                               "or click X and enter to exit the game:")
             if quit_game == "x":
-                sys.exit()
+                quit()
             if v > 9:
                 print(self.game_winner())
                 print(f'FINAL SCORE: You:{self.game_score(self.computer)}\n\
                  | Computer: {self.game_score(self.player)}')
                 print("GAME OVER!!!")
-                sys.exit()
+                quit()
 
             v += 1
 
