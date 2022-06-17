@@ -1,7 +1,6 @@
 import random
 
 
-
 class Mybattleship_Game:
     """
     This is the battleship game class
