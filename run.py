@@ -18,6 +18,7 @@ class Mybattleship_Game:
             self.player.append(["~"]*5)
         for c in range(5):
             self.computer.append(["-"]*5)
+        print("\n")
         player_name = input("Enter Your Name and Click Enter to  " +
                             "Start Playing!\n")
         print(f"{player_name} Game Board")
@@ -96,24 +97,24 @@ class Mybattleship_Game:
                 print("Yeh! you made hit")
             else:
                 self.computer[guess_row][guess_column] = "X"
-                print(" Sorry! you missed the hit")
+                print("Sorry! you missed the hit")
             self.computer_turn()
             print(f'You have played {v} rounds out 10 rounds')
-            print(f'SCORES For this Round: You:{self.game_score(self.computer)} \
+            print(f'SCORES For this Round: You:{self.game_score(self.computer)}\n\
                  | Computer: {self.game_score(self.player)}')
             print("My Game Board")
             self.player_board()
             print("\n")
             print("Computer Game Board")
             self.computer_board()
-            quit_game = input("Click any button and enter to continue or \
-                              click X and enter to exit the game")
+            quit_game = input("Click any button and enter to continue " +
+                              "or click X and enter to exit the game")
             if quit_game == "x":
                 sys.exit()
             if v > 9:
                 print(self.game_winner())
-                print(f'FINAL SCORE: You:{self.game_score(self.computer)} \
-                      |  Computer: {self.game_score(self.player)}')
+                print(f'FINAL SCORE: You:{self.game_score(self.computer)}\n\
+                 | Computer: {self.game_score(self.player)}')
                 print("GAME OVER!!!")
                 sys.exit()
 
@@ -139,7 +140,7 @@ class Mybattleship_Game:
 
             else:
                 self.player[guess_row][guess_column] = "X"
-                print(" the computer missed the hit")
+                print("the computer missed the hit")
 
             game_alive = False
 
@@ -164,6 +165,9 @@ class Mybattleship_Game:
         return message
 
 
-print("Welcome to The Battleship Game")
+print("****Welcome to The Sumo Battleship Game****")
+print("To play, you choose a coordinate to fire at on \n" +
+      "the computer's board. You can only choose numbers\n" +
+      "between 0 to 4 with 0 inclusive e.g row 0 col 0")
 
 my_game = Mybattleship_Game()
